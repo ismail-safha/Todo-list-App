@@ -25,7 +25,7 @@ export default function Home() {
   const fetchTodos = async () => {
     setLoading(true);
     try {
-      const res = await fetch("/api/tasks");
+      const res = await fetch("/api");
       const data = await res.json();
       setTodos(data);
       setLoading(true);
@@ -42,7 +42,7 @@ export default function Home() {
 
     setAdding(true); // Start spinner
     try {
-      await fetch("/api/tasks", {
+      await fetch("/api", {
         method: "POST",
         body: JSON.stringify({ title }),
         headers: { "Content-Type": "application/json" },
