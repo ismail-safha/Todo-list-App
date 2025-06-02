@@ -23,12 +23,12 @@ A modern and responsive Todo List application built with:
 
 ## 🛠️ Technologies Used
 
-| Tech             | Description                 |
-| ---------------- | --------------------------- |
-| **Next.js**      | React framework for SSR/SSG |
-| **Prisma**       | Type-safe ORM for DB access |
-| **Tailwind CSS** | Utility-first CSS framework |
-| **PostgreSQL**   | Neon DB                     |
+| Tech             | Description                         |
+| ---------------- | ----------------------------------- |
+| **Next.js**      | React framework for SSR/SSG         |
+| **Prisma**       | Type-safe ORM for DB access         |
+| **Tailwind CSS** | Utility-first CSS framework         |
+| **PostgreSQL**   | via Neon or any compatible provider |
 
 ## 📂 Installation & Setup
 
@@ -47,8 +47,10 @@ npm run dev
 
 ---
 
-fix: handle async route params in Next.js 15
+## ⚠️ Why Next.js 14?
 
-Resolved issue where accessing params.id directly caused an error.
-In Next.js 15, dynamic route params must be awaited.
-Added `await context.params` to fix the problem.
+Although Next.js 15 is the latest version, I chose to use **Next.js 14** because:
+
+- Next.js 15 heavily relies on **Server Actions**, which change how backend logic is handled.
+- My app uses traditional **API routing** via `app/api`, which works best with **Next.js 14**.
+- Compatibility issues occurred when using Prisma with the new Server Actions approach.
